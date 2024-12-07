@@ -1,0 +1,88 @@
+.home {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(to bottom, #001e3c, #002f54); /* Deeper gradient for richness */
+    color: #e1e8ed; /* Soft white text */
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .homeHeader h1 {
+    font-family: 'Pirata One', cursive; /* Pirate font for theme */
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    color: #f0a500; /* Golden amber */
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    letter-spacing: 2px;
+  }
+  
+  .homeHeader p {
+    font-size: 1.3rem;
+    color: #c7d5e0; /* Softer gray */
+    margin-bottom: 50px;
+    line-height: 1.8;
+  }
+  
+  .crewIntro, .adventures {
+    margin: 40px auto;
+    max-width: 900px;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.12); /* Transparent white for better readability */
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+  }
+  
+  .crewIntro:hover, .adventures:hover {
+    transform: translateY(-5px); /* Slight hover animation */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+  }
+  
+  .crewIntro h2, .adventures h2 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    color: #f0a500; /* Golden amber */
+  }
+  
+  .crewIntro p, .adventures p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #d0dbe4; /* Softer text for better readability */
+  }
+  
+  .exploreBtn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 14px 30px;
+    font-size: 1.1rem;
+    color: #001e3c;
+    background-color: #f0a500;
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .exploreBtn:hover {
+    background-color: #d48a00; /* Slightly darker amber */
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  .exploreBtn:active {
+    background-color: #b57500;
+    transform: scale(1.05);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  .homeFooter {
+    margin-top: 70px;
+    font-size: 1rem;
+    color: #cbd5e0; /* Light gray */
+    border-top: 1px solid #003d5b; /* Slightly lighter navy */
+    padding-top: 20px;
+    text-align: center;
+    font-weight: bold;
+  }
+  
