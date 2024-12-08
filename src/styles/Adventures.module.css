@@ -1,0 +1,130 @@
+.adventuresContainer {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #eaf6ff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .adventuresHeader {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #1f78b4;
+    text-align: center;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px #ffffff;
+  }
+  
+  .adventuresList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .adventureItem {
+    background: #ffffff;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 2px solid #1f78b4;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .adventureItem:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .adventureHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .adventureTitle {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #1f78b4;
+  }
+  
+  .chevronIcon {
+    font-size: 1.5rem;
+    color: #1f78b4;
+  }
+  
+  .adventureContent {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #f9f9f9;
+    border-radius: 6px;
+    border-left: 4px solid #1f78b4;
+  }
+  
+  .adventureDate {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+  }
+  
+  .adventureDescription {
+    font-size: 1.1rem;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  .crewAffected {
+    margin-top: 1rem;
+    padding: 0.8rem;
+    background: #f0faff;
+    border-radius: 8px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .crewHeader {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #2563eb;
+    margin-bottom: 0.5rem;
+  }
+  
+  .crewList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .crewMember {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid #93c5fd;
+    transition: transform 0.3s ease;
+  }
+  
+  .crewMember:hover {
+    transform: scale(1.05);
+  }
+  
+  .crewIcon {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+  }
+  
+  .crewName {
+    font-weight: bold;
+    color: #1e3a8a;
+  }
+  
+  .crewRole {
+    font-style: italic;
+    color: #475569;
+  }
+  
