@@ -74,8 +74,8 @@ const Alliances = () => {
         {alliances.map((alliance, idx) => (
           <div className="alliance-card" key={idx}>
            <div className="alliance-symbol-container">
-  <AllianceSymbol type={alliance.symbolType} />
-</div>
+        <AllianceSymbol type={alliance.symbolType} />
+        </div>
             <div className="alliance-info">
               <h2>{alliance.name}</h2>
               <p className="alliance-members"><strong>Members:</strong> {alliance.members}</p>

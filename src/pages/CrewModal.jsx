@@ -11,10 +11,15 @@ const CrewModal = ({ member, onClose }) => {
 
   if (!member) return null;
 
-  // Retrieve stats, dynamic abilities, and weapon from crewStats
+  // Retrieve stats, dynamic abilities, weapon, special ability, awakening boost, and quirk from crewStats
   const stats = crewStats[member.name]?.stats || {};
   const dynamic = crewStats[member.name]?.dynamic || "No dynamic info available.";
   const weapon = crewStats[member.name]?.weapon || "No weapon info available.";
+  const specialAbility = crewStats[member.name]?.specialAbility || "No special ability available.";
+  const specialAbilityDescription = crewStats[member.name]?.specialAbilityDescription || "";
+  const awakeningBoost = crewStats[member.name]?.awakeningBoost || "No awakening boost available.";
+  const awakeningBoostDescription = crewStats[member.name]?.awakeningBoostDescription || "";
+  const quirk = crewStats[member.name]?.quirk || "No quirk available.";
 
   // Prevent modal close when clicking inside modal content or buttons
   const handleOverlayClick = (e) => {
@@ -137,17 +142,17 @@ const CrewModal = ({ member, onClose }) => {
               </ul>
             </div>
           )}
-         {activeSection === "stats" && (
-          <div className={styles.sectionContent}>
-            <h3>Stats</h3>
-            <div className={styles.statsGrid}>
-              {Object.entries(stats).map(([statName, statValue], index) => (
-                <div key={index} className={styles.statItem}>
-                  <strong>{statName}</strong>: {statValue}
-                </div>
-              ))}
+          {activeSection === "stats" && (
+            <div className={styles.sectionContent}>
+              <h3>Stats</h3>
+              <div className={styles.statsGrid}>
+                {Object.entries(stats).map(([statName, statValue], index) => (
+                  <div key={index} className={styles.statItem}>
+                    <strong>{statName}</strong>: {statValue}
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
           )}
           {activeSection === "dynamic" && (
             <div className={styles.sectionContent}>
@@ -159,6 +164,28 @@ const CrewModal = ({ member, onClose }) => {
             <div className={styles.sectionContent}>
               <h3>Weapon</h3>
               <p>{weapon}</p>
+            </div>
+          )}
+          {activeSection === "specialAbility" && (
+            <div className={styles.sectionContent}>
+              <h3>Special Ability</h3>
+              <p>
+                <strong>{specialAbility}</strong>: {specialAbilityDescription}
+              </p>
+            </div>
+          )}
+          {activeSection === "awakeningBoost" && (
+            <div className={styles.sectionContent}>
+              <h3>Awakening Boost</h3>
+              <p>
+                <strong>{awakeningBoost}</strong>: {awakeningBoostDescription}
+              </p>
+            </div>
+          )}
+          {activeSection === "quirk" && (
+            <div className={styles.sectionContent}>
+              <h3>Quirk</h3>
+              <p>{quirk}</p>
             </div>
           )}
         </div>
@@ -188,6 +215,30 @@ const CrewModal = ({ member, onClose }) => {
           onClick={() => toggleSection("weapon")}
         >
           Weapon
+        </button>
+        <button
+          className={`${styles.detailsButton} ${
+            activeSection === "specialAbility" ? styles.activeButton : ""
+          }`}
+          onClick={() => toggleSection("specialAbility")}
+        >
+          Special Ability
+        </button>
+        <button
+          className={`${styles.detailsButton} ${
+            activeSection === "awakeningBoost" ? styles.activeButton : ""
+          }`}
+          onClick={() => toggleSection("awakeningBoost")}
+        >
+          Awakening Boost
+        </button>
+        <button
+          className={`${styles.detailsButton} ${
+            activeSection === "quirk" ? styles.activeButton : ""
+          }`}
+          onClick={() => toggleSection("quirk")}
+        >
+          Quirk
         </button>
       </div>
     </div>
