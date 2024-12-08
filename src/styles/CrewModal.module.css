@@ -1,196 +1,225 @@
 /* Modal Overlay and Content Styling */
 .modalOverlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    animation: fadeIn 0.3s ease-out;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.modalContent {
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 30px;
+  max-width: 700px;
+  width: 90%;
+  text-align: left;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+  animation: zoomIn 0.3s ease-out;
+  overflow-y: auto;
+  max-height: 90%;
+}
+
+/* Icon and Header Styling */
+.iconContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #f0a500;
+  color: #fff;
+  font-size: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  color: #333;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.closeButton:hover {
+  transform: scale(1.2);
+}
+
+/* Content Styling */
+.modalTitle {
+  font-size: 2rem;
+  color: #f0a500;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.modalRole,
+.modalBounty {
+  font-size: 1rem;
+  margin: 5px 0;
+  color: #444;
+}
+
+.modalDescription {
+  margin: 15px 0;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+}
+
+/* Details Section Buttons */
+.detailsRow {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.leftButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.rightButtons {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.detailsButton {
+  flex: 1;
+  text-align: center;
+  padding: 10px 15px;
+  background: #ffffff;
+  color: #f0a500;
+  font-size: 1rem;
+  font-weight: bold;
+  border: 1px solid #f0a500;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.detailsButton:hover,
+.activeButton {
+  background: #f0a500;
+  color: #fff;
+}
+
+/* Section Content Styling */
+.sectionContentWrapper {
+  margin-top: 20px;
+}
+
+.sectionContent {
+  margin-top: 20px;
+  background: #f8f8f8;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.sectionContent h3 {
+  margin-bottom: 10px;
+  color: #f0a500;
+  font-size: 1.2rem;
+}
+
+.sectionContent p,
+.sectionContent ul {
+  color: #444;
+  font-size: 1rem;
+}
+
+.sectionContent ul {
+  padding-left: 20px;
+  list-style: disc;
+}
+
+.sectionContent ul li {
+  margin-bottom: 5px;
+  color: #333;
+}
+
+/* Stats Box Styling */
+.statsBox {
+  background: #f8f8f8;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.statsBox ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.statsBox ul li {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+  font-size: 1rem;
+  color: #555;
+}
+
+.statsBox ul li strong {
+  color: #333;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-  
-  .modalContent {
-    background: #ffffff;
-    border-radius: 15px;
-    padding: 30px;
-    max-width: 700px;
-    width: 90%;
-    text-align: left;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    position: relative;
-    animation: zoomIn 0.3s ease-out;
+  to {
+    opacity: 1;
   }
-  
-  /* Icon and Header Styling */
-  .iconContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
   }
-  
-  .icon {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background: #f0a500;
-    color: #fff;
-    font-size: 2.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  to {
+    transform: scale(1);
+    opacity: 1;
   }
-  
-  .closeButton {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 1.8rem;
-    background: none;
-    border: none;
-    color: #333;
-    cursor: pointer;
-    transition: transform 0.2s ease-in-out;
-  }
-  
-  .closeButton:hover {
-    transform: scale(1.2);
-  }
-  
-  /* Content Styling */
-  .modalTitle {
-    font-size: 2rem;
-    color: #f0a500;
-    margin-bottom: 15px;
-    text-align: center;
-  }
-  
-  .modalRole,
-  .modalBounty {
-    font-size: 1rem;
-    margin: 5px 0;
-    color: #444;
-  }
-  
-  .modalDescription {
-    margin: 15px 0;
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #555;
-  }
-  
-  /* Details Section Buttons */
-  .detailsRow {
-    display: flex;
-    justify-content: space-between;
-    gap: 15px;
-    margin: 20px 0;
-  }
-  
-  .detailsButton {
-    flex: 1;
-    text-align: center;
-    padding: 15px;
-    background: #ffffff;
-    color: #f0a500;
-    font-size: 1rem;
-    font-weight: bold;
-    border: 1px solid #f0a500;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-  }
-  
-  .detailsButton:hover,
-  .activeButton {
-    background: #f0a500;
-    color: #fff;
-  }
-  
-  /* Section Content Styling */
-  .sectionContentWrapper {
-    margin-top: 20px;
-  }
-  
-  .sectionContent {
-    margin-top: 20px;
-    background: #f8f8f8;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Make all section headers the same color */
-  .sectionContent h3 {
-    margin-bottom: 10px;
-    color: #f0a500; /* Consistent header color */
-    font-size: 1.2rem;
-  }
-  
-  /* Section content consistency */
-  .sectionContent p,
-  .sectionContent ul {
-    color: #444; /* Consistent text color for content */
-    font-size: 1rem;
-  }
-  
-  /* List item styling */
-  .sectionContent ul {
-    padding-left: 20px;
-    list-style: disc;
-  }
-  
-  .sectionContent ul li {
-    margin-bottom: 5px;
-    color: #333; /* Consistent text color for list items */
-  }
-  
-  /* Animation Keyframes */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  
-  @keyframes zoomIn {
-    from {
-      transform: scale(0.9);
-      opacity: 0;
-    }
-    to {
-      transform: scale(1);
-      opacity: 1;
-    }
-  }
-  
-  @keyframes slideUp {
-    from {
-      transform: translateY(20px);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-  
-  @keyframes slideDown {
-    from {
-      transform: translateY(-20px);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-  
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  gap: 15px; /* Space between grid items */
+}
+
+.statItem {
+  font-size: 1rem;
+  color: #444;
+  text-align: left;
+}
+
