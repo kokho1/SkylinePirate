@@ -1,0 +1,96 @@
+.alliances-container {
+    background: linear-gradient(to bottom, #f0f8ff, #e8f5e9);
+    padding: 50px;
+    font-family: 'Arial', sans-serif;
+    min-height: 100vh;
+    color: #333;
+  }
+  
+  .alliances-title {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 40px;
+    color: #00695c;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .alliances-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+  }
+  
+  .alliance-card {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0px 6px 25px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .alliance-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  .alliance-symbol-container {
+    background: rgba(224, 247, 250, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px; /* Increased symbol container height */
+    width: 300px; /* Increased symbol container width */
+    border-radius: 50%;
+    margin: 30px auto;
+    border: 6px solid #004d40; /* Enhanced border */
+  }
+  
+  .alliance-symbol-container svg {
+    width: 180px; /* Increased symbol size */
+    height: 180px; /* Maintain proportional symbol size */
+  }
+  
+  .alliance-info {
+    padding: 25px;
+  }
+  
+  .alliance-info h2 {
+    margin: 0;
+    font-size: 1.8rem;
+    color: #004d40;
+    font-weight: 600;
+    text-align: center;
+  }
+  
+  .alliance-info p {
+    margin: 10px 0;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  .alliance-info p strong {
+    color: #004d40;
+  }
+  
+  .alliance-members, .alliance-purpose, .alliance-funnyTwist, .alliance-symbol {
+    font-style: italic;
+    color: #555;
+  }
+  
+  .alliance-description {
+    margin-top: 20px;
+    white-space: pre-wrap;
+    color: #444;
+  }
+  
+  .alliance-card:hover .alliance-info h2 {
+    color: #00796b;
+  }
+  
+  .alliance-card:hover .alliance-symbol-container {
+    border-color: #00251a;
+  }
+  
