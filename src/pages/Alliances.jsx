@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from '../styles/Alliances.css';
 import AllianceSymbol from './AllianceSymbol';
 
@@ -67,28 +67,76 @@ const alliances = [
 ];
 
 const Alliances = () => {
+  const [selectedAlliance, setSelectedAlliance] = useState(null);
+
+  const openModal = (alliance) => {
+    setSelectedAlliance(alliance);
+    document.body.style.overflow = 'hidden'; // Disable scrolling
+  };
+  
+  const closeModal = () => {
+    setSelectedAlliance(null);
+    document.body.style.overflow = 'auto'; // Enable scrolling
+  };
   return (
     <div className="alliances-container">
       <h1 className="alliances-title">Skyline Pirates - Alliances & Allegiances</h1>
       <div className="alliances-grid">
         {alliances.map((alliance, idx) => (
-          <div className="alliance-card" key={idx}>
-           <div className="alliance-symbol-container">
-        <AllianceSymbol type={alliance.symbolType} />
-        </div>
+          <div 
+            className="alliance-card" 
+            key={idx}
+            onClick={() => openModal(alliance)}
+            style={{cursor: 'pointer'}}
+          >
+            <div className="alliance-symbol-container">
+              <AllianceSymbol type={alliance.symbolType} />
+            </div>
             <div className="alliance-info">
               <h2>{alliance.name}</h2>
-              <p className="alliance-members"><strong>Members:</strong> {alliance.members}</p>
-              <p className="alliance-purpose"><strong>Purpose:</strong> {alliance.purpose}</p>
-              <p className="alliance-funnyTwist"><strong>Funny Twist:</strong> {alliance.funnyTwist}</p>
-              <p className="alliance-symbol"><strong>Symbol:</strong> {alliance.symbolDetail}</p>
-              <p className="alliance-description">{alliance.detailedDescription}</p>
             </div>
           </div>
         ))}
       </div>
+
+      {selectedAlliance && (
+        <Modal alliance={selectedAlliance} onClose={closeModal} />
+      )}
     </div>
   );
 };
+
+const Modal = ({ alliance, onClose }) => {
+  return (
+    <div className="modal-overlay" onClick={onClose}>
+      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+        <button className="close-button" onClick={onClose}>✕</button>
+        
+        <div className="modal-symbol-container">
+          <AllianceSymbol type={alliance.symbolType} />
+        </div>
+        
+        <h2 className="modal-title">{alliance.name}</h2>
+        
+        <div className="modal-details">
+          <p><strong>Members:</strong> {alliance.members}</p>
+          <p><strong>Purpose:</strong> {alliance.purpose}</p>
+          <p><strong>Funny Twist:</strong> {alliance.funnyTwist}</p>
+          <p><strong>Symbol:</strong> {alliance.symbolDetail}</p>
+        </div>
+        
+        <div className="modal-description">
+        {alliance.detailedDescription
+          .trim()
+          .split(/\n+/) // Splits text into an array by any newline
+          .map((line, index) => (
+            <p key={index}>{line.trim()}</p>
+          ))}
+      </div>
+      </div>
+    </div>
+  );
+};
+
 
 export default Alliances;

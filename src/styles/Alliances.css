@@ -1,96 +1,324 @@
+/* CSS Variables for Easy Theme Management */
+:root {
+  /* Color Palette */
+  --color-primary: #00695c;
+  --color-primary-dark: #004d40;
+  --color-primary-light: #e0f7fa;
+  --color-secondary: #00796b;
+  --color-accent: #ff5722;
+  --color-background: linear-gradient(to bottom, #f9f9f9 0%, #e0f0ea 100%);
+  --color-card-bg: #ffffff;
+  --color-text: #333333;
+  --color-text-light: #555555;
+  --color-border: #e0e0e0;
+  --color-shadow: rgba(0, 0, 0, 0.1);
+  --color-shadow-hover: rgba(0, 0, 0, 0.15);
+
+  /* Typography */
+  --font-family: 'Arial', sans-serif;
+  --font-title: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-size-title: 2.8rem;
+  --font-size-subtitle: 1.6rem;
+  --font-size-body: 1.1rem;
+
+  /* Spacing */
+  --spacing-container: 50px 30px;
+  --spacing-card: 30px;
+  --spacing-grid-gap: 30px;
+}
+
+/* Container Styles */
 .alliances-container {
-    background: linear-gradient(to bottom, #f0f8ff, #e8f5e9);
-    padding: 50px;
-    font-family: 'Arial', sans-serif;
-    min-height: 100vh;
-    color: #333;
+  background: var(--color-background);
+  padding: var(--spacing-container);
+  font-family: var(--font-family);
+  min-height: 100vh;
+  color: var(--color-text);
+}
+
+/* Title Styles */
+.alliances-title {
+  text-align: center;
+  font-size: var(--font-size-title);
+  margin-bottom: 50px;
+  color: var(--color-primary);
+  font-family: var(--font-title);
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.08);
+  padding-bottom: 10px;
+  border-bottom: 3px solid var(--color-primary-dark);
+}
+
+/* Grid Layout */
+.alliances-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-grid-gap);
+  padding: 10px;
+}
+
+/* Card Styles */
+.alliance-card {
+  background: var(--color-card-bg);
+  border-radius: 15px;
+  box-shadow: 0px 6px 18px var(--color-shadow);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid var(--color-border);
+}
+
+.alliance-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 12px 36px var(--color-shadow-hover);
+}
+
+/* Symbol Container */
+.alliance-symbol-container {
+  background: var(--color-primary-light);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 280px;
+  width: 280px;
+  border-radius: 50%;
+  margin: 30px auto 20px auto;
+  border: 5px solid var(--color-primary-dark);
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.alliance-symbol-container svg circle {
+  display: none;
+}
+
+/* Display Specific SVG Element */
+.alliance-symbol-container svg circle:nth-of-type(2) {
+  display: block;
+}
+
+.alliance-card:hover .alliance-symbol-container {
+  border-color: var(--color-secondary);
+  transform: scale(1.05);
+}
+
+.alliance-symbol-container svg {
+  width: 1480px;
+  height: 1480px;
+  opacity: 1;
+}
+
+/* Card Information */
+.alliance-info {
+  padding: var(--spacing-card);
+  text-align: left;
+}
+
+.alliance-info h2 {
+  margin: 0 0 15px 0;
+  font-size: var(--font-size-subtitle);
+  color: var(--color-primary-dark);
+  font-weight: 600;
+  text-align: center;
+}
+
+.alliance-card:hover .alliance-info h2 {
+  color: var(--color-secondary);
+}
+
+.alliance-info p {
+  margin: 8px 0;
+  font-size: var(--font-size-body);
+  line-height: 1.8;
+  color: var(--color-text-light);
+}
+
+.alliance-info p strong {
+  color: var(--color-primary-dark);
+  font-weight: bold;
+}
+
+/* Additional Information Styles */
+.alliance-members, 
+.alliance-purpose, 
+.alliance-funnyTwist, 
+.alliance-symbol {
+  font-style: italic;
+  color: var(--color-text-light);
+}
+
+/* Description Styles */
+.alliance-description {
+  margin-top: 20px;
+  white-space: pre-wrap;
+  color: var(--color-text-light);
+  text-align: justify;
+  line-height: 1.8;
+}
+
+/* Divider Under Title */
+.alliance-info h2::after {
+  content: "";
+  display: block;
+  margin: 12px auto;
+  width: 50px;
+  height: 2px;
+  background: var(--color-secondary);
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 20px;
+  box-sizing: border-box;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Modal Content */
+.modal-content {
+  background: var(--color-card-bg);
+  border-radius: 15px;
+  max-width: 600px;
+  width: 90%;
+  padding: 40px 30px 30px;
+  position: relative;
+  box-shadow: 0px 12px 36px var(--color-shadow-hover);
+  overflow-y: auto;
+  max-height: 90vh;
+  box-sizing: border-box;
+  animation: slideIn 0.3s ease;
+}
+
+/* Close Button */
+.close-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #f0f0f0;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.close-button:hover {
+  background: #e0e0e0;
+  transform: rotate(90deg);
+}
+
+/* Modal Title */
+.modal-title {
+  font-size: var(--font-size-subtitle);
+  color: var(--color-primary-dark);
+  font-weight: 700;
+  text-align: center;
+  margin: 0 0 20px 0;
+  border-bottom: 2px solid var(--color-primary-dark);
+  padding-bottom: 10px;
+}
+
+/* Modal Details */
+.modal-details p {
+  margin: 10px 0;
+  font-size: var(--font-size-body);
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+.modal-details strong {
+  color: var(--color-primary-dark);
+}
+
+.modal-description {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  line-height: 1.8;
+  color: #333;
+  font-size: 1rem;
+  text-align: left;
+  white-space: pre-wrap; /* Keeps line breaks but prevents unnecessary spacing */
+  text-indent: 0; /* Prevents indentation on all lines */
+  word-wrap: break-word; /* Ensures long words break properly */
+}
+
+.modal-description p {
+  margin: 0 0 10px 0; /* Adds spacing between paragraphs */
+  text-indent: 0; /* Prevents any unintended indentation */
+}
+
+
+
+.modal-description p span {
+  display: block; /* Forces each line to start on a new line */
+  text-indent: 0; /* Removes any unintended indentation */
+}
+
+
+
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-  
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive Enhancements */
+@media (max-width: 768px) {
   .alliances-title {
-    text-align: center;
-    font-size: 3rem;
-    margin-bottom: 40px;
-    color: #00695c;
-    font-weight: bold;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    font-size: 2.2rem;
   }
-  
-  .alliances-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
+
+  .modal-content {
+    padding: 30px 20px 20px;
   }
-  
-  .alliance-card {
-    background: #fff;
-    border-radius: 15px;
-    box-shadow: 0px 6px 25px rgba(0, 0, 0, 0.15);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  .modal-title {
+    font-size: 1.5rem;
   }
-  
-  .alliance-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
-  }
-  
+
   .alliance-symbol-container {
-    background: rgba(224, 247, 250, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 300px; /* Increased symbol container height */
-    width: 300px; /* Increased symbol container width */
-    border-radius: 50%;
-    margin: 30px auto;
-    border: 6px solid #004d40; /* Enhanced border */
+    height: 200px;
+    width: 200px;
+    margin: 20px auto;
   }
-  
+
   .alliance-symbol-container svg {
-    width: 180px; /* Increased symbol size */
-    height: 180px; /* Maintain proportional symbol size */
+    width: 140px;
+    height: 140px;
   }
-  
-  .alliance-info {
-    padding: 25px;
-  }
-  
-  .alliance-info h2 {
-    margin: 0;
-    font-size: 1.8rem;
-    color: #004d40;
-    font-weight: 600;
-    text-align: center;
-  }
-  
-  .alliance-info p {
-    margin: 10px 0;
-    font-size: 1rem;
-    line-height: 1.6;
-  }
-  
-  .alliance-info p strong {
-    color: #004d40;
-  }
-  
-  .alliance-members, .alliance-purpose, .alliance-funnyTwist, .alliance-symbol {
-    font-style: italic;
-    color: #555;
-  }
-  
-  .alliance-description {
-    margin-top: 20px;
-    white-space: pre-wrap;
-    color: #444;
-  }
-  
-  .alliance-card:hover .alliance-info h2 {
-    color: #00796b;
-  }
-  
-  .alliance-card:hover .alliance-symbol-container {
-    border-color: #00251a;
-  }
-  
+}
