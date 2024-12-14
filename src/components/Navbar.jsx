@@ -18,15 +18,32 @@ const Navbar = () => {
           </NavLink>
         </li>
         <li>
+          <NavLink to="/Relationships" className={({ isActive }) => (isActive ? styles.current : "")}>
+            Relationships
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/weapon" className={({ isActive }) => (isActive ? styles.current : "")}>
+            Weapons
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/alliance" className={({ isActive }) => (isActive ? styles.current : "")}>
+            Alliances
+          </NavLink>
+        </li>
+        <li>
           <NavLink to="/adventures" className={({ isActive }) => (isActive ? styles.current : "")}>
             Adventures
           </NavLink>
         </li>
+
         <li>
-          <NavLink to="/ship" className={({ isActive }) => (isActive ? styles.current : "")}>
-            Ship
+          <NavLink to="/ahievements" className={({ isActive }) => (isActive ? styles.current : "")}>
+            Achievements
           </NavLink>
         </li>
+      
         <li>
           <NavLink to="/gallery" className={({ isActive }) => (isActive ? styles.current : "")}>
             Gallery
