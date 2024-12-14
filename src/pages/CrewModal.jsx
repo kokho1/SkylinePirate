@@ -163,9 +163,12 @@ const CrewModal = ({ member, onClose }) => {
           {activeSection === "weapon" && (
             <div className={styles.sectionContent}>
               <h3>Weapon</h3>
-              <p>{weapon}</p>
+              <p>
+                <strong>{weapon.name}:</strong> {weapon.detail}
+              </p>
             </div>
           )}
+
           {activeSection === "specialAbility" && (
             <div className={styles.sectionContent}>
               <h3>Special Ability</h3>
